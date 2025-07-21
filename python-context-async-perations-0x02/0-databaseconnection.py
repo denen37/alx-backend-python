@@ -16,3 +16,6 @@ def run_query(query):
         cursor = dbconn.cursor()
         cursor.execute(query)
         return cursor.fetchone()
+
+result = run_query("SELECT * FROM users")
+print(result)
