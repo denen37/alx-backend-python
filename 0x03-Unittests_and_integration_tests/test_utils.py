@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import unittest
 from parameterized import parameterized, parameterized_class
 import utils
