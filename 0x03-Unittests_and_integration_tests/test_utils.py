@@ -30,7 +30,7 @@ class TestGetJson(unittest.TestCase):
         ('http://example.com', 'payload', True),
         ('http://holberton.io', 'payload', False)
     ])
-    @patch('__main__.requests.get')
+    @patch('utils.requests.get')
     def test_get_json(self, url, key, value, mock_get):
         mock_response = MagicMock()
         mock_response.json.return_value = {key: value}
