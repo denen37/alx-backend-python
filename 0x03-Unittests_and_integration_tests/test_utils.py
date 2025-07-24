@@ -53,7 +53,7 @@ class TestClass:
     
 
 class TestMemoize(unittest.TestCase):
-    @patch('test_utils.TestClass.a_method') 
+    @patch('__main__.TestClass.a_method') 
     def test_memoize(self, mock_method):
         mock_method.return_value = 42
 
@@ -66,5 +66,5 @@ class TestMemoize(unittest.TestCase):
 
         mock_method.assert_called_once()
 
-
-unittest.main()
+if __name__ == '__main__':
+    unittest.main()
