@@ -27,18 +27,18 @@ class TestAccessNestedMap(unittest.TestCase):
 
 class TestGetJson(unittest.TestCase):
     @parameterized.expand([
-        ('http://example.com', 'payload', True),
-        ('http://holberton.io', 'payload', False)
+        ('http://example.com', {"payload": True}),
+        ('http://holberton.io', {"payload": False})
     ])
     @patch('utils.requests.get')
-    def test_get_json(self, url, key, value, mock_get):
+    def test_get_json(self, url, payload, mock_get):
         mock_response = MagicMock()
-        mock_response.json.return_value = {key: value}
+        mock_response.json.return_value = payload
         mock_get.return_value = mock_response
 
         result = get_json(url)
 
-        self.assertEqual(result[key], value)
+        self.assertEqual(payload)
         mock_get.assert_called_once_with(url)
 
 
